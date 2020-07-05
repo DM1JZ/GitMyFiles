@@ -16,7 +16,7 @@ This tracks file operations in a given git repo and executes the git add and com
 		DIR=/home/user/pathto/mygitrepo
 		LOGFILE=/opt/gitsynclog.log
 		# echo $1 >> LOGFILE # enable for debug purposes
-		cd $DIR && git add *  # 2>&1 >> LOGFILE # enable for debug purposes
+		cd $DIR && git add -A  # 2>&1 >> LOGFILE # enable for debug purposes
 		git commit -m "$1" # 2>&1 >> LOGFILE # enable for debug purposes
 		git push
 ```
