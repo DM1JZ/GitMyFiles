@@ -12,13 +12,13 @@ This tracks file operations in a given git repo and executes the git add and com
 * create `/opt/gitsync.sh` as root:
 
 	```shell
-#!/bin/bash
-DIR=/home/user/pathto/mygitrepo
-LOGFILE=/opt/gitsynclog.log
-# echo $1 >> LOGFILE # enable for debug purposes
-cd $DIR && git add -A  # 2>&1 >> LOGFILE # enable for debug purposes
-git commit -m "$1" # 2>&1 >> LOGFILE # enable for debug purposes
-git push
+	#!/bin/bash
+	DIR=/home/user/pathto/mygitrepo
+	LOGFILE=/opt/gitsynclog.log
+	# echo $1 >> LOGFILE # enable for debug purposes
+	cd $DIR && git add -A  # 2>&1 >> LOGFILE # enable for debug purposes
+	git commit -m "$1" # 2>&1 >> LOGFILE # enable for debug purposes
+	git push
 	```
 
 * `chmod +x /opt/gitsync.sh`
@@ -26,7 +26,7 @@ git push
 * sudo incrontab -e:
 
 	```shell
-/home/user/pathto/mygitrepo/	IN_MODIFY,IN_CREATE,IN_DELETE,IN_MOVE	  /opt/gitsync.sh '$% $@/$#'
+	/home/user/pathto/mygitrepo/	IN_MODIFY,IN_CREATE,IN_DELETE,IN_MOVE	  /opt/gitsync.sh '$% $@/$#'
 	```
 
 Make sure you have ssh access to the remote git and your passphrase is unlocked.
